@@ -1,6 +1,6 @@
 package com.desafio_pessoas02.Pessoa02.auxiliar;
 
-import com.desafio_pessoas02.Pessoa02.dtos.PessoaResponse;
+import com.desafio_pessoas02.Pessoa02.codigo_antigo.dtos.PessoaResponse;
 
 import java.util.List;
 

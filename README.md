@@ -35,7 +35,7 @@ O projeto tem duas entidades. Pessoa e Endereço, com a seguite estrutura:
   "nome": "Paulo Silva",
   "dataDeNascimento": "1954-07-29",
   "cpf": "123.456.789-09",
-  "enderecos": [
+  "enderecoEntities": [
     {
       "rua": "Rua das Flores",
       "numero": "123",
@@ -46,16 +46,16 @@ O projeto tem duas entidades. Pessoa e Endereço, com a seguite estrutura:
       "enderecoPrincipal": true
     }
   ````
-Salienta-se que uma pessoa tem uma lista de endereços, sendo que, apenas um desses, pode ser o principal.
+Salienta-se que uma pessoaEntity tem uma lista de endereços, sendo que, apenas um desses, pode ser o principal.
 
 As ações possibilitadas pelo CUD são:
 
-#### * Criar uma nova pessoa:
+#### * Criar uma nova pessoaEntity:
 
-Para criar uma nova pessoa deve-se acessar o seguinte **endpoint**:
+Para criar uma nova pessoaEntity deve-se acessar o seguinte **endpoint**:
 
 ````
- POST - http://localhost:8080/pessoashttp://localhost:8080/pessoas
+ POST - http://localhost:8080/pessoashttp://localhost:8080/pessoaEntities
 ```` 
 
 Enviando no body da requisição um objeto com a seguinte estrutura:
@@ -65,7 +65,7 @@ Enviando no body da requisição um objeto com a seguinte estrutura:
   "nome": "Maria Antonieta da Silva",
   "dataDeNascimento": "1978-09-12",
   "cpf": "123.456.789-09",
-  "enderecos": [
+  "enderecoEntities": [
     {
       "rua": "Av. Brasil",
       "numero": "100",
@@ -91,7 +91,7 @@ seguinte objeto:
   "nome": "string",
   "dataDeNascimento": "2026-01-07",
   "cpf": "string",
-  "enderecos": [
+  "enderecoEntities": [
     {
       "id": 0,
       "rua": "string",
@@ -105,13 +105,13 @@ seguinte objeto:
   ]
 ````
 
-#### Listar pessoas do banco
+#### Listar pessoaEntities do banco
 
-Para obter todas as pessoas cadastradas no banco, deve-se utilizar
+Para obter todas as pessoaEntities cadastradas no banco, deve-se utilizar
 o seguinte **endpoint**
 
 ````
- GET - http://localhost:8080/pessoashttp://localhost:8080/pessoas
+ GET - http://localhost:8080/pessoashttp://localhost:8080/pessoaEntities
 ```` 
 Esse endpoint dispensa o envio de qualquer objeto ou atributo
 em seu corpo, retornando ao cliente o seguinte objeto:
@@ -129,7 +129,7 @@ em seu corpo, retornando ao cliente o seguinte objeto:
       "nome": "string",
       "dataDeNascimento": "2026-01-07",
       "cpf": "string",
-      "enderecos": [
+      "enderecoEntities": [
         {
           "id": 0,
           "rua": "string",
@@ -166,16 +166,16 @@ em seu corpo, retornando ao cliente o seguinte objeto:
 }**
 ````
 
-#### Retornar idade da pessoa
+#### Retornar idade da pessoaEntity
 
-O **endpoint** para retormar a idade da pessoa é o segunte:
+O **endpoint** para retormar a idade da pessoaEntity é o segunte:
 
 ````
- GET - http://localhost:8080/pessoas/id/mostrar_idade
+ GET - http://localhost:8080/pessoaEntities/id/mostrar_idade
 ````
 
 Esse endpoint dipensa envio de objeto no body, nessessitando
-apenas o envio do id (**identificador da pessoa no banco**), na **URL**.
+apenas o envio do id (**identificador da pessoaEntity no banco**), na **URL**.
 
 A resposta desse endpoint é o seguinte objeto, com **status code 200**:
 
@@ -190,22 +190,22 @@ A resposta desse endpoint é o seguinte objeto, com **status code 200**:
 
 ````
 
-#### Atualizar uma pessoa
+#### Atualizar uma pessoaEntity
 
-Para **Atualizar** uma pessoa deve-se acessar o seguinte **endpoint**:
+Para **Atualizar** uma pessoaEntity deve-se acessar o seguinte **endpoint**:
 
 ````
- PACTH - http://localhost:8080/pessoas/id
+ PACTH - http://localhost:8080/pessoaEntities/id
 ```` 
 
-Enviando o id da pessoa na **URL**, e no body da requisição um objeto com a seguinte estrutura:
+Enviando o id da pessoaEntity na **URL**, e no body da requisição um objeto com a seguinte estrutura:
 
 ````
 {
   "nome": "string",
   "dataDeNascimento": "2026-01-07",
   "cpf": "string",
-  "enderecos": [
+  "enderecoEntities": [
     {
       "id": 0,
       "rua": "string",
@@ -230,10 +230,10 @@ copo da requisição. Caso contrário, o endereço não será atualizado.
 ````
 #### deletar
 
-Para apagar uma pessoa do banco deve-se utilizar o seguinte endpoint:
+Para apagar uma pessoaEntity do banco deve-se utilizar o seguinte endpoint:
 
 ````
- DELETE - http://localhost:8080/pessoas/id
+ DELETE - http://localhost:8080/pessoaEntities/id
 ````
 Esse endpoint não retorna qualquer objeto. Apenas status code 204.
 
