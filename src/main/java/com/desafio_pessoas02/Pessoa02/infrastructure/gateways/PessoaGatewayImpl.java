@@ -1,6 +1,7 @@
 package com.desafio_pessoas02.Pessoa02.infrastructure.gateways;
 
 import com.desafio_pessoas02.Pessoa02.core.aplication.gateways.PessoaGateway;
+import com.desafio_pessoas02.Pessoa02.core.aplication.paginacao.Pagina;
 import com.desafio_pessoas02.Pessoa02.core.aplication.usecases.endercos.AtualizarEnderecosUseCase;
 import com.desafio_pessoas02.Pessoa02.core.domain.entity.Endereco;
 import com.desafio_pessoas02.Pessoa02.core.domain.entity.Pessoa;
@@ -11,6 +12,7 @@ import com.desafio_pessoas02.Pessoa02.infrastructure.persistence.model.PessoaMod
 import com.desafio_pessoas02.Pessoa02.infrastructure.persistence.repository.PessoaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
@@ -37,9 +39,19 @@ public class PessoaGatewayImpl implements PessoaGateway {
     }
 
     @Override
-    public Page<Pessoa> listarPessoas(Pageable pageable) {
-        Page<PessoaModel> pessoaModels = repository.findAll(pageable);
-        return pessoaModels.map(mapper::toDomain);
+    public Pagina<Pessoa> listarPessoas(int pagina, int tamanho) {
+        Pageable pageable = PageRequest.of(pagina, tamanho);
+        Page<PessoaModel> resultado = repository.findAll(pageable);
+        return new Pagina<>(
+                resultado.getContent()
+                        .stream()
+                        .map(mapper::toDomain)
+                        .toList(),
+                resultado.getNumber(),
+                resultado.getSize(),
+                resultado.getTotalElements(),
+                resultado.getTotalPages()
+        );
     }
 
     @Override
@@ -56,7 +68,6 @@ public class PessoaGatewayImpl implements PessoaGateway {
 
     @Override
     public Pessoa atualizarPessoa(Pessoa pessoa, Pessoa atualizacoes) {
-
         PessoaModel pessoaModel = mapper.toUpdate(pessoa, atualizacoes);
         pessoaModel = repository.save(pessoaModel);
 
@@ -64,9 +75,10 @@ public class PessoaGatewayImpl implements PessoaGateway {
     }
 
     @Override
-    public Integer calcularIdade(Pessoa pessoa) {
-        LocalDate hoje = LocalDate.now();
-        return Period.between(pessoa.getDataDeNascimento(), hoje).getYears();
+    public Pessoa salvar(Pessoa pessoa) {
+        PessoaModel pessoaModel = mapper.toModel(pessoa);
+        pessoaModel= repository.save(pessoaModel);
+        return mapper.toDomain(pessoaModel);
     }
 
     public List<Endereco> validaEnderecoPrincipal(List<Endereco> enderecos){

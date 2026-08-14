@@ -38,4 +38,5 @@ public class PessoaConfig {
     public CalcularIdadeUseCaseImpl calcularIdadeUseCase(PessoaGateway pessoaGateway){
         return new CalcularIdadeUseCaseImpl(pessoaGateway);
     }
+
 }

@@ -8,14 +8,18 @@ import lombok.RequiredArgsConstructor;
 import java.util.HashMap;
 import java.util.Map;
 
-@RequiredArgsConstructor
+
 public class CalcularIdadeUseCaseImpl implements CalcularIdadeUseCase {
     private final PessoaGateway pessoaGateway;
+
+    public CalcularIdadeUseCaseImpl(PessoaGateway pessoaGateway) {
+        this.pessoaGateway = pessoaGateway;
+    }
 
     @Override
     public Map<String, Object> execute(Pessoa pessoa) {
         Map<String, Object> resposta = new HashMap<>();
-        Integer idade = pessoaGateway.calcularIdade(pessoa);
+        Integer idade = pessoa.getIdade();
         resposta.put("pessoa",pessoa);
         resposta.put("idade",idade);
         return resposta;

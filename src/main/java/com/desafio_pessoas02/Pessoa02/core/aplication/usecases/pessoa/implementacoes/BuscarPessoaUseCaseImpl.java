@@ -4,12 +4,15 @@ import com.desafio_pessoas02.Pessoa02.core.aplication.gateways.PessoaGateway;
 import com.desafio_pessoas02.Pessoa02.core.aplication.usecases.pessoa.BuscarPessoaUseCase;
 import com.desafio_pessoas02.Pessoa02.core.domain.entity.Pessoa;
 import com.desafio_pessoas02.Pessoa02.core.domain.exceptions.PessoaNaoEncontradaException;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
+
 public class BuscarPessoaUseCaseImpl implements BuscarPessoaUseCase {
 
     private final PessoaGateway pessoaGateway;
+
+    public BuscarPessoaUseCaseImpl(PessoaGateway pessoaGateway) {
+        this.pessoaGateway = pessoaGateway;
+    }
 
     @Override
     public Pessoa execute(Long id) {

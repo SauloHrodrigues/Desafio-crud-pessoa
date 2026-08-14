@@ -1,5 +1,6 @@
 package com.desafio_pessoas02.Pessoa02.web.facades.Implementacao;
 
+import com.desafio_pessoas02.Pessoa02.core.aplication.paginacao.Pagina;
 import com.desafio_pessoas02.Pessoa02.core.aplication.usecases.pessoa.*;
 import com.desafio_pessoas02.Pessoa02.core.domain.entity.Pessoa;
 import com.desafio_pessoas02.Pessoa02.infrastructure.persistence.model.EnderecoModel;
@@ -11,10 +12,12 @@ import com.desafio_pessoas02.Pessoa02.web.facades.PessoaAplicationFacade;
 import com.desafio_pessoas02.Pessoa02.web.mappers_dto.PessoaDtoMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -38,9 +41,22 @@ public class PessoaFacade implements PessoaAplicationFacade {
 
     @Override
     public Page<PessoaResponse> listar(Pageable pageable) {
+        Pagina<Pessoa> resultado =
+                listarPessoasUseCase.execute(
+                        pageable.getPageNumber(),
+                        pageable.getPageSize()
+                );
 
-        return listarPessoasUseCase.execute(pageable)
-                .map(pessoaMapper::toResponse);
+        List<PessoaResponse> pessoas = resultado.conteudo()
+                .stream()
+                .map(pessoaMapper::toResponse)
+                .toList();
+
+        return new PageImpl<>(
+                pessoas,
+                pageable,
+                resultado.totalElementos()
+        );
     }
 
     @Override
