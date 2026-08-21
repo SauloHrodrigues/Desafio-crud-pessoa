@@ -3,9 +3,7 @@ package com.desafio_pessoas02.Pessoa02.web.facades.Implementacao;
 import com.desafio_pessoas02.Pessoa02.core.aplication.paginacao.Pagina;
 import com.desafio_pessoas02.Pessoa02.core.aplication.usecases.pessoa.*;
 import com.desafio_pessoas02.Pessoa02.core.domain.entity.Pessoa;
-import com.desafio_pessoas02.Pessoa02.infrastructure.persistence.model.EnderecoModel;
 import com.desafio_pessoas02.Pessoa02.web.dtos.PessoaAtualizada;
-import com.desafio_pessoas02.Pessoa02.web.dtos.PessoaIdadeResponse;
 import com.desafio_pessoas02.Pessoa02.web.dtos.PessoaRequest;
 import com.desafio_pessoas02.Pessoa02.web.dtos.PessoaResponse;
 import com.desafio_pessoas02.Pessoa02.web.facades.PessoaAplicationFacade;
@@ -19,7 +17,6 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 @RequiredArgsConstructor
 @Service

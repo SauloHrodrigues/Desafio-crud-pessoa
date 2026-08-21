@@ -1,5 +1,6 @@
 package com.desafio_pessoas02.Pessoa02.configuration;
 
+import com.desafio_pessoas02.Pessoa02.core.aplication.gateways.LogGatway;
 import com.desafio_pessoas02.Pessoa02.core.aplication.gateways.PessoaGateway;
 import com.desafio_pessoas02.Pessoa02.core.aplication.usecases.pessoa.CalcularIdadeUseCase;
 import com.desafio_pessoas02.Pessoa02.core.aplication.usecases.pessoa.implementacoes.*;
@@ -10,33 +11,33 @@ import org.springframework.context.annotation.Configuration;
 public class PessoaConfig {
 
     @Bean
-    public CriarPessoaUseCaseImpl criarPessoaUseCase(PessoaGateway pessoaGateway) {
-        return new CriarPessoaUseCaseImpl(pessoaGateway);
+    public CriarPessoaUseCaseImpl criarPessoaUseCase(PessoaGateway pessoaGateway, LogGatway logGatway) {
+        return new CriarPessoaUseCaseImpl(pessoaGateway,logGatway);
     }
 
     @Bean
-    public AtualizarPessoaUseCaseImpl AtualizarPessoaUseCase(PessoaGateway pessoaGateway) {
-        return new AtualizarPessoaUseCaseImpl(pessoaGateway);
+    public AtualizarPessoaUseCaseImpl AtualizarPessoaUseCase(PessoaGateway pessoaGateway, LogGatway logGatway) {
+        return new AtualizarPessoaUseCaseImpl(pessoaGateway,logGatway);
     }
 
     @Bean
-    public ListarPessoasUseCaseImpl listarPessoasUseCase(PessoaGateway pessoaGateway){
-        return new ListarPessoasUseCaseImpl(pessoaGateway);
+    public ListarPessoasUseCaseImpl listarPessoasUseCase(PessoaGateway pessoaGateway, LogGatway logGatway){
+        return new ListarPessoasUseCaseImpl(pessoaGateway, logGatway);
     }
 
     @Bean
-    public DeletarPessoaUseCaseImpl deletarPessoaUseCase(PessoaGateway pessoaGateway){
-        return new DeletarPessoaUseCaseImpl(pessoaGateway);
+    public DeletarPessoaUseCaseImpl deletarPessoaUseCase(PessoaGateway pessoaGateway, LogGatway logGatway){
+        return new DeletarPessoaUseCaseImpl(pessoaGateway, logGatway);
     }
 
     @Bean
-    public BuscarPessoaUseCaseImpl buscarPessoaUseCase(PessoaGateway pessoaGateway){
-        return new BuscarPessoaUseCaseImpl(pessoaGateway);
+    public BuscarPessoaUseCaseImpl buscarPessoaUseCase(PessoaGateway pessoaGateway, LogGatway logGatway){
+        return new BuscarPessoaUseCaseImpl(pessoaGateway,logGatway);
     }
 
     @Bean
-    public CalcularIdadeUseCaseImpl calcularIdadeUseCase(PessoaGateway pessoaGateway){
-        return new CalcularIdadeUseCaseImpl(pessoaGateway);
+    public CalcularIdadeUseCaseImpl calcularIdadeUseCase(PessoaGateway pessoaGateway, LogGatway logGatway){
+        return new CalcularIdadeUseCaseImpl(pessoaGateway, logGatway);
     }
 
 }

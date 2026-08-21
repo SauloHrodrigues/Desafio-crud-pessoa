@@ -5,20 +5,15 @@ import com.desafio_pessoas02.Pessoa02.core.aplication.paginacao.Pagina;
 import com.desafio_pessoas02.Pessoa02.core.aplication.usecases.endercos.AtualizarEnderecosUseCase;
 import com.desafio_pessoas02.Pessoa02.core.domain.entity.Endereco;
 import com.desafio_pessoas02.Pessoa02.core.domain.entity.Pessoa;
-import com.desafio_pessoas02.Pessoa02.infrastructure.mapppers.EnderecoMapper;
 import com.desafio_pessoas02.Pessoa02.infrastructure.mapppers.PessoaMapper;
-import com.desafio_pessoas02.Pessoa02.infrastructure.persistence.model.EnderecoModel;
-import com.desafio_pessoas02.Pessoa02.infrastructure.persistence.model.PessoaModel;
-import com.desafio_pessoas02.Pessoa02.infrastructure.persistence.repository.PessoaRepository;
+import com.desafio_pessoas02.Pessoa02.infrastructure.persistence.jpa.model.PessoaModel;
+import com.desafio_pessoas02.Pessoa02.infrastructure.persistence.jpa.repository.PessoaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
-import org.springframework.util.CollectionUtils;
 
-import java.time.LocalDate;
-import java.time.Period;
 import java.util.*;
 
 @RequiredArgsConstructor

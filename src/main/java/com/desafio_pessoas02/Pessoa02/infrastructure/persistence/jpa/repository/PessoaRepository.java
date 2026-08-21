@@ -1,7 +1,7 @@
-package com.desafio_pessoas02.Pessoa02.infrastructure.persistence.repository;
+package com.desafio_pessoas02.Pessoa02.infrastructure.persistence.jpa.repository;
 
-import com.desafio_pessoas02.Pessoa02.infrastructure.persistence.model.EnderecoModel;
-import com.desafio_pessoas02.Pessoa02.infrastructure.persistence.model.PessoaModel;
+import com.desafio_pessoas02.Pessoa02.infrastructure.persistence.jpa.model.EnderecoModel;
+import com.desafio_pessoas02.Pessoa02.infrastructure.persistence.jpa.model.PessoaModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

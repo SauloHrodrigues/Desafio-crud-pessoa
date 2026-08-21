@@ -1,4 +1,4 @@
-package com.desafio_pessoas02.Pessoa02.infrastructure.persistence.model;
+package com.desafio_pessoas02.Pessoa02.infrastructure.persistence.jpa.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

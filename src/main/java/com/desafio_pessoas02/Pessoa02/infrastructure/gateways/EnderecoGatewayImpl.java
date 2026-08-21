@@ -5,8 +5,8 @@ import com.desafio_pessoas02.Pessoa02.core.domain.exceptions.EnderecoNaoEncontra
 import com.desafio_pessoas02.Pessoa02.core.aplication.gateways.EnderecoGateway;
 import com.desafio_pessoas02.Pessoa02.infrastructure.mapppers.EnderecoMapper;
 import com.desafio_pessoas02.Pessoa02.infrastructure.mapppers.PessoaMapper;
-import com.desafio_pessoas02.Pessoa02.infrastructure.persistence.model.EnderecoModel;
-import com.desafio_pessoas02.Pessoa02.infrastructure.persistence.repository.EnderecoRepository;
+import com.desafio_pessoas02.Pessoa02.infrastructure.persistence.jpa.model.EnderecoModel;
+import com.desafio_pessoas02.Pessoa02.infrastructure.persistence.jpa.repository.EnderecoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

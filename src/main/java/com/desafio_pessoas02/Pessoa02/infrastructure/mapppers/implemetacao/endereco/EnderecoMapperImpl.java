@@ -1,10 +1,8 @@
 package com.desafio_pessoas02.Pessoa02.infrastructure.mapppers.implemetacao.endereco;
 
 import com.desafio_pessoas02.Pessoa02.core.domain.entity.Endereco;
-import com.desafio_pessoas02.Pessoa02.core.domain.entity.Pessoa;
 import com.desafio_pessoas02.Pessoa02.infrastructure.mapppers.EnderecoMapper;
-import com.desafio_pessoas02.Pessoa02.infrastructure.mapppers.PessoaMapper;
-import com.desafio_pessoas02.Pessoa02.infrastructure.persistence.model.EnderecoModel;
+import com.desafio_pessoas02.Pessoa02.infrastructure.persistence.jpa.model.EnderecoModel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

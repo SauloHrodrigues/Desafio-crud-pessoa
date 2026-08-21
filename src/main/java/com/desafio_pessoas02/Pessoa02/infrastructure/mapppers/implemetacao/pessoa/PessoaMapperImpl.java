@@ -4,15 +4,11 @@ import com.desafio_pessoas02.Pessoa02.core.domain.entity.Endereco;
 import com.desafio_pessoas02.Pessoa02.core.domain.entity.Pessoa;
 import com.desafio_pessoas02.Pessoa02.infrastructure.mapppers.EnderecoMapper;
 import com.desafio_pessoas02.Pessoa02.infrastructure.mapppers.PessoaMapper;
-import com.desafio_pessoas02.Pessoa02.infrastructure.persistence.model.EnderecoModel;
-import com.desafio_pessoas02.Pessoa02.infrastructure.persistence.model.PessoaModel;
+import com.desafio_pessoas02.Pessoa02.infrastructure.persistence.jpa.model.EnderecoModel;
+import com.desafio_pessoas02.Pessoa02.infrastructure.persistence.jpa.model.PessoaModel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 
 @RequiredArgsConstructor
 @Component
