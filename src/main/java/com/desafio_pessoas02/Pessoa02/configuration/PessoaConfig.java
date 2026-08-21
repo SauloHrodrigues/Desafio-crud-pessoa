@@ -2,7 +2,6 @@ package com.desafio_pessoas02.Pessoa02.configuration;
 
 import com.desafio_pessoas02.Pessoa02.core.aplication.gateways.LogGatway;
 import com.desafio_pessoas02.Pessoa02.core.aplication.gateways.PessoaGateway;
-import com.desafio_pessoas02.Pessoa02.core.aplication.usecases.pessoa.CalcularIdadeUseCase;
 import com.desafio_pessoas02.Pessoa02.core.aplication.usecases.pessoa.implementacoes.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,10 +33,4 @@ public class PessoaConfig {
     public BuscarPessoaUseCaseImpl buscarPessoaUseCase(PessoaGateway pessoaGateway, LogGatway logGatway){
         return new BuscarPessoaUseCaseImpl(pessoaGateway,logGatway);
     }
-
-    @Bean
-    public CalcularIdadeUseCaseImpl calcularIdadeUseCase(PessoaGateway pessoaGateway, LogGatway logGatway){
-        return new CalcularIdadeUseCaseImpl(pessoaGateway, logGatway);
-    }
-
 }

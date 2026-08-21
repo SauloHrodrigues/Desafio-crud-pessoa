@@ -28,7 +28,6 @@ public class PessoaFacade implements PessoaAplicationFacade {
     private final ListarPessoasUseCase listarPessoasUseCase;
     private final DeletarPessoaUseCase deletarPessoaUseCase;
     private final BuscarPessoaUseCase buscarPessoaUseCase;
-    private final CalcularIdadeUseCase calcularIdadeUseCase;
 
     public PessoaResponse criar(PessoaRequest request) {
         Pessoa pessoa = pessoaMapper.toDomen(request);
@@ -60,10 +59,8 @@ public class PessoaFacade implements PessoaAplicationFacade {
     public Map<String, Object> retornarIdade(Long id) {
         Map<String, Object> resposta = new HashMap<>();
         Pessoa pessoa = buscarPessoaUseCase.execute(id);
-        Map<String, Object> retorno = calcularIdadeUseCase.execute(pessoa);
-        Pessoa pessoaResponse = (Pessoa) retorno.get("pessoa");
-        resposta.put("Pessoa: ",pessoaMapper.toResponse(pessoaResponse));
-        resposta.put("Idade: ",(Integer) retorno.get("idade"));
+        resposta.put("Pessoa: ",pessoaMapper.toResponse(pessoa));
+        resposta.put("Idade: ",(Integer) pessoa.getIdade());
         return resposta;
     }
 
