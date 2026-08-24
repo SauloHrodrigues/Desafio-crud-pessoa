@@ -1,0 +1,10 @@
+package com.desafio_pessoas02.Pessoa02.infrastructure.mapppers;
+
+import com.desafio_pessoas02.Pessoa02.core.domain.entity.Endereco;
+import com.desafio_pessoas02.Pessoa02.infrastructure.persistence.jpa.model.EnderecoModel;
+
+public interface EnderecoMapper {
+    Endereco toDomain(EnderecoModel model);
+    EnderecoModel toModel(Endereco endereco );
+    EnderecoModel update(Endereco endereco, Endereco atualizacoes);
+}
